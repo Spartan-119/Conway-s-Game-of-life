@@ -4,20 +4,19 @@ import grid
 
 os.environ["SDL_VIDEO_CENTERED"] = '1'
 
-width, height = 720, 720 # this is your screen size
+width, height = 2000, 2000 # this is your screen size
 size = (width, height)
 
 pg.init()
 pg.display.set_caption("Conway's Game of life")
 screen = pg.display.set_mode(size)
 clock = pg.time.Clock()
-fps = 40
+fps = 160
 
 black = (0, 0, 0)
-blue = (0, 14, 71)
 white = (255, 255, 255)
 
-scaler = 20
+scaler = 30
 offset = 1
 
 Grid = grid.Grid(width, height, scaler, offset)
@@ -33,7 +32,7 @@ while running:
         if event.type == pg.QUIT:
             running = False
     
-    Grid.Conway(off_color = white, on_color = blue, surface = screen)
+    Grid.Conway(off_color = black, on_color = white, surface = screen)
     
     pg.display.update()
     
